@@ -4,6 +4,7 @@ export const HomeContainter = styled.View`
   margin-left: 49px;
   margin-top: 40px;
   margin-right: 49px;
+  margin-bottom: 50px;
 `
 
 export const HomeTitle = styled.Text`

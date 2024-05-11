@@ -55,7 +55,7 @@ export default function DogInfoItem({ dogObject, onClose }){
           </DogInfoRowRight>
           <DogInfoRowRight>
             <DogInfoLabel>
-              Vacinada :
+              {dogObject.gender === 'W' ? 'Vacinada' : 'Vacinado'} :
             </DogInfoLabel>
             <DogInfoValue>
               {dogObject.vacinated ? 'Sim' : 'Não'}

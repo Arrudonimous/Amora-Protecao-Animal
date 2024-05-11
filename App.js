@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import Home from './src/pages/Home';
-
+import { NavigationContainer } from '@react-navigation/native';
 
 import {
   useFonts,
@@ -25,8 +24,8 @@ import {
 } from '@expo-google-fonts/poppins';
 import AppLoading from 'expo-app-loading';
 import Header from './src/components/Header';
-import { SafeAreaViewComponent } from './src/styles';
-import Dogs from './src/pages/Dogs';
+import Routes from './src/routes';
+
 
 
 export default function App() {
@@ -56,12 +55,9 @@ export default function App() {
     return <AppLoading />
   } else {
     return (
-      <SafeAreaViewComponent>
-        <Header />
-        <Dogs />
-        {/* <Home /> */}
-        <StatusBar style="auto" />
-      </SafeAreaViewComponent>
+      <NavigationContainer>
+        <Routes />
+      </NavigationContainer>
     );
   }
 }

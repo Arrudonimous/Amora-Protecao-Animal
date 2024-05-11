@@ -15,6 +15,8 @@ import { DogsContainter,
   DogItemNameText 
 } from "./styles";
 import DogInfoItem from '../../components/DogInfoItem';
+import { SafeAreaViewComponent } from '../../styles';
+import Header from '../../components/Header';
 
 export default function Dogs() {
   const [isDogItemOpened, setIsDogItemOpened] = useState(false)
@@ -27,6 +29,7 @@ export default function Dogs() {
       age: 2,
       vacinated: true,
       weight: 3,
+      gender: 'M',
       uri: require('../../../assets/RodriguinhoImage.png')
     },
     {
@@ -35,6 +38,7 @@ export default function Dogs() {
       age: 2,
       vacinated: true,
       weight: 3,
+      gender: 'M',
       uri: require('../../../assets/MeloImage.png')
     },
     {
@@ -43,6 +47,7 @@ export default function Dogs() {
       age: 2,
       vacinated: true,
       weight: 3,
+      gender: 'W',
       uri: require('../../../assets/MorcegaImage.png')
     },
     {
@@ -51,6 +56,7 @@ export default function Dogs() {
       age: 2,
       vacinated: true,
       weight: 3,
+      gender: 'M',
       uri: require('../../../assets/FofaoImage.png')
     },
     {
@@ -59,6 +65,7 @@ export default function Dogs() {
       age: 2,
       vacinated: true,
       weight: 3,
+      gender: 'M',
       uri: require('../../../assets/RodriguinhoImage.png')
     },
     {
@@ -67,6 +74,7 @@ export default function Dogs() {
       age: 2,
       vacinated: true,
       weight: 3,
+      gender: 'M',
       uri: require('../../../assets/MeloImage.png')
     },
     {
@@ -75,6 +83,7 @@ export default function Dogs() {
       age: 2,
       vacinated: true,
       weight: 3,
+      gender: '@',
       uri: require('../../../assets/MorcegaImage.png')
     },
     {
@@ -83,6 +92,7 @@ export default function Dogs() {
       age: 2,
       vacinated: true,
       weight: 3,
+      gender: 'M',
       uri: require('../../../assets/FofaoImage.png')
     },
   ]
@@ -93,34 +103,37 @@ export default function Dogs() {
   }
 
   return (
-    <DogsContainter>
-      <DogsTitle>Conheça nossos <DogsItalic>Dogs</DogsItalic></DogsTitle>
-      <DogsSubtitleContainer>
-        <DogsSubtitleText>
-          Compartilhe Amor, Dê um Lar, Adote, Não Compre!
-        </DogsSubtitleText>
-      </DogsSubtitleContainer>
-      <LocateDogsButton>
-        <Feather name="map-pin" size={24} color="#091C1A" />
-        <LocateDogsButtonText>Localizar </LocateDogsButtonText>
-        <LocateDogsButtonTextItalic>Dogs</LocateDogsButtonTextItalic>
-      </LocateDogsButton>
-      {!isDogItemOpened ? (
-        <DogsItemsContainer>
-          {dogsItems.map((dogItem, index) => (
-            <DogItem key={index} onPress={() => handleOpenDogItem(index)}>
-              <DogItemImage
-                source={dogItem.uri}
-              />
-              <DogItemNameContainer>
-                <DogItemNameText>{dogItem.name}</DogItemNameText>
-              </DogItemNameContainer>
-            </DogItem>
-          ))}
-        </DogsItemsContainer>
-      ) : (
-          <DogInfoItem dogObject={dogItemOpened} onClose={() => setIsDogItemOpened(false)}/>
-      )}
-    </DogsContainter>
+    <SafeAreaViewComponent>
+      <Header />
+      <DogsContainter>
+        <DogsTitle>Conheça nossos <DogsItalic>Dogs</DogsItalic></DogsTitle>
+        <DogsSubtitleContainer>
+          <DogsSubtitleText>
+            Compartilhe Amor, Dê um Lar, Adote, Não Compre!
+          </DogsSubtitleText>
+        </DogsSubtitleContainer>
+        <LocateDogsButton>
+          <Feather name="map-pin" size={24} color="#091C1A" />
+          <LocateDogsButtonText>Localizar </LocateDogsButtonText>
+          <LocateDogsButtonTextItalic>Dogs</LocateDogsButtonTextItalic>
+        </LocateDogsButton>
+        {!isDogItemOpened ? (
+          <DogsItemsContainer>
+            {dogsItems.map((dogItem, index) => (
+              <DogItem key={index} onPress={() => handleOpenDogItem(index)}>
+                <DogItemImage
+                  source={dogItem.uri}
+                />
+                <DogItemNameContainer>
+                  <DogItemNameText>{dogItem.name}</DogItemNameText>
+                </DogItemNameContainer>
+              </DogItem>
+            ))}
+          </DogsItemsContainer>
+        ) : (
+            <DogInfoItem dogObject={dogItemOpened} onClose={() => setIsDogItemOpened(false)}/>
+        )}
+      </DogsContainter>
+    </SafeAreaViewComponent>
   )
 }
